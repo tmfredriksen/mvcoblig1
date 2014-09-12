@@ -6,11 +6,10 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Blogg.Controllers
+namespace Postg.Controllers
 {
     public class PostController : Controller
-    {
-        
+    {        
         DatabaseModel db = new DatabaseModel();
         // GET: Post
         public ActionResult Index(int? id)
@@ -34,12 +33,18 @@ namespace Blogg.Controllers
 
 
         // GET: Post/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(int? id)
         {
-            return View();
+            if (id == null)
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            Post post = db.Posts.Find(id);
+            if (post == null)
+                return HttpNotFound();
+            return View(post);
         }
 
         // GET: Post/Create
+        [HttpGet]
         public ActionResult Create()
         {
             return View();
@@ -47,13 +52,19 @@ namespace Blogg.Controllers
 
         // POST: Post/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Post Post)
         {
             try
             {
-                // TODO: Add insert logic here
+                if (ModelState.IsValid)
+                {
+                    db.Posts.Add(Post);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
 
-                return RedirectToAction("Index");
+                }
+                // TODO: Add insert logic here
+                return View(Post);
             }
             catch
             {
@@ -62,20 +73,29 @@ namespace Blogg.Controllers
         }
 
         // GET: Post/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int? id)
         {
-            return View();
+            if (id == null)
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            Post Post = db.Posts.Find(id);
+            if (Post == null)
+                return HttpNotFound();
+            return View(Post);
         }
 
         // POST: Post/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(Post Post)
         {
             try
             {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    db.Entry(Post).State = System.Data.Entity.EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                return View(Post);
             }
             catch
             {
@@ -84,20 +104,37 @@ namespace Blogg.Controllers
         }
 
         // GET: Post/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int? id)
         {
-            return View();
+            if (id == null)
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            Post Post = db.Posts.Find(id);
+            if (Post == null)
+                return HttpNotFound();
+            return View(Post);
         }
 
         // POST: Post/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int? id, Post blo)
         {
             try
             {
-                // TODO: Add delete logic here
+                Post Post = new Post();
+                if (ModelState.IsValid)
+                {
+                    if (id == null)
+                        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                    Post = db.Posts.Find(id);
+                    if (Post == null)
+                        return HttpNotFound();
 
-                return RedirectToAction("Index");
+
+                    db.Posts.Remove(Post);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                return View(Post);
             }
             catch
             {
@@ -105,5 +142,4 @@ namespace Blogg.Controllers
             }
         }
     }
-         
 }

@@ -17,9 +17,6 @@ namespace Blogg.Controllers
         {
             return View(db.Blogs.ToList());
         }
-
-    
-      
         // GET: Blog/Details/5
         public ActionResult Details(int? id)
         {

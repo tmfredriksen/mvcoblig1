@@ -106,3 +106,7 @@ C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg\bin\Microsoft.Owin.Security.T
 C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg\obj\Debug\Blogg.dll
 C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg\obj\Debug\Blogg.pdb
+C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg\obj\Debug\Blogg.Migrations.Addedcommentparentid.resources
+C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg\obj\Debug\Blogg.csproj.GenerateResource.Cache
+C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg\obj\Debug\Blogg.Migrations.PostIDComment.resources
+C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg\obj\Debug\Blogg.Migrations.Donno.resources

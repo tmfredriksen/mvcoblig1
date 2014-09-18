@@ -11,5 +11,7 @@ namespace Blogg.Models
         public string Title { get; set; }
         public string Text { get; set; }
         public virtual List<Post> Posts { get; set; }
+
+        public int BlogID { get; set; }
     }
 }

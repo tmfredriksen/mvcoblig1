@@ -2,100 +2,89 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Postg.Controllers
+namespace Blogg.Controllers
 {
     public class PostController : Controller
-    {        
-        DatabaseModel db = new DatabaseModel();
+    {
+        private DatabaseModel db = new DatabaseModel();
+
         // GET: Post
         public ActionResult Index(int? id)
         {
-            if (id == null)
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-
-            // List<Post> Post;
-            //Post Post = db.Posts.Find(id);
-            // if (Post == null)
-            //   return HttpNotFound();
-
-            return View(db.Posts.ToList());          
-             
-        }
-
-        public ActionResult Open(int? id)
-        {
-            return View(db.Posts.ToList());
-        }
-
-
-        // GET: Post/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            Post post = db.Posts.Find(id);
-            if (post == null)
-                return HttpNotFound();
+            ViewBag.parentID = id;
+            int parentID = Convert.ToInt32(id);
+            var post = db.Posts.Where(i => i.BlogID == parentID);
             return View(post);
         }
 
-        // GET: Post/Create
-        [HttpGet]
-        public ActionResult Create()
+        // GET: Post/Details/5
+        public ActionResult Details(int id)
         {
             return View();
         }
 
+        // GET: Post/Create
+        [HttpGet]
+        public ActionResult Create(int? id)
+        {
+            int? par = id;
+            var post = new Post();
+            post.ID = Convert.ToInt32(id);
+
+            return View(post);
+        }
+
         // POST: Post/Create
         [HttpPost]
-        public ActionResult Create(Post Post)
+        public ActionResult Create(Post p, int id)
         {
+            var post = new Post
+            {
+                title = p.title,
+                Text = p.Text,
+                Author = p.Author,
+                BlogID = id
+            };
             try
             {
                 if (ModelState.IsValid)
+                
                 {
-                    db.Posts.Add(Post);
+                    //db.Posts.Where(post => post.BlogID == parentID)
+                    db.Posts.Add(post);
                     db.SaveChanges();
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Index", "Post", new { id = id });
 
                 }
                 // TODO: Add insert logic here
-                return View(Post);
+                return View();
             }
             catch
             {
                 return View();
+            
             }
+             
         }
 
         // GET: Post/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int id)
         {
-            if (id == null)
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            Post Post = db.Posts.Find(id);
-            if (Post == null)
-                return HttpNotFound();
-            return View(Post);
+            return View();
         }
 
         // POST: Post/Edit/5
         [HttpPost]
-        public ActionResult Edit(Post Post)
+        public ActionResult Edit(int id, FormCollection collection)
         {
             try
             {
-                if (ModelState.IsValid)
-                {
-                    db.Entry(Post).State = System.Data.Entity.EntityState.Modified;
-                    db.SaveChanges();
-                    return RedirectToAction("Index");
-                }
-                return View(Post);
+                // TODO: Add update logic here
+
+                return RedirectToAction("Index");
             }
             catch
             {
@@ -104,37 +93,20 @@ namespace Postg.Controllers
         }
 
         // GET: Post/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int id)
         {
-            if (id == null)
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            Post Post = db.Posts.Find(id);
-            if (Post == null)
-                return HttpNotFound();
-            return View(Post);
+            return View();
         }
 
         // POST: Post/Delete/5
         [HttpPost]
-        public ActionResult Delete(int? id, Post blo)
+        public ActionResult Delete(int id, FormCollection collection)
         {
             try
             {
-                Post Post = new Post();
-                if (ModelState.IsValid)
-                {
-                    if (id == null)
-                        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-                    Post = db.Posts.Find(id);
-                    if (Post == null)
-                        return HttpNotFound();
+                // TODO: Add delete logic here
 
-
-                    db.Posts.Remove(Post);
-                    db.SaveChanges();
-                    return RedirectToAction("Index");
-                }
-                return View(Post);
+                return RedirectToAction("Index");
             }
             catch
             {

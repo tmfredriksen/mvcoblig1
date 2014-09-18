@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Blogg.Models.Post>
+﻿@model IEnumerable<Blogg.Models.Comment>
 
 @{
     ViewBag.Title = "Index";
@@ -7,21 +7,18 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create", new { id = ViewBag.parentID})
+    @Html.ActionLink("Create New", "Create", new { id = ViewBag.commentParentID })
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Blog.Title)
+            @Html.DisplayNameFor(model => model.Post.title)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.title)
+            @Html.DisplayNameFor(model => model.Title)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Text)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Author)
         </th>
         <th></th>
     </tr>
@@ -29,19 +26,15 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Blog.Title)
+            @Html.DisplayFor(modelItem => item.Post.title)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.title)
+            @Html.DisplayFor(modelItem => item.Title)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Text)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Author)
-        </td>
-        <td>
-            @Html.ActionLink("Comments", "Index", "Comment", new { id = item.ID }, null) |
             @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
             @Html.ActionLink("Details", "Details", new { id=item.ID }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.ID })

@@ -42,6 +42,7 @@ namespace Blogg.Controllers
         [HttpPost]
         public ActionResult Create(Blog blog)
         {
+        
             try
             {
                 if(ModelState.IsValid)

@@ -35,9 +35,9 @@
             @Html.DisplayFor(modelItem => item.Text)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @Html.ActionLink("Edit", "Edit", new { id = item.ID, parentID = ViewBag.commentParentID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ID, ViewBag.commentParentID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ID, ViewBag.commentParentID })
         </td>
     </tr>
 }

@@ -1,4 +1,5 @@
 ﻿using Blogg.Models;
+using Blogg.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,19 +11,25 @@ namespace Blogg.Controllers
 {
     public class BlogController : Controller
     {
-        private DatabaseModel db = new DatabaseModel();
+        private BlogRepository repository;
+      //  private DatabaseModel db = new DatabaseModel();
 
+        public BlogController()
+        {
+            repository = new BlogRepository();
+        }
         // GET: Blog
         public ActionResult Index()
         {
-            return View(db.Blogs.ToList());
+            return View(repository.GetAllBlogs());
         }
+
         // GET: Blog/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            Blog blog = db.Blogs.Find(id);
+            Blog blog = repository.ReadBlog(id);
             if (blog == null)
                 return HttpNotFound();
             return View(blog);
@@ -38,16 +45,13 @@ namespace Blogg.Controllers
         // POST: Blog/Create
         [HttpPost]
         public ActionResult Create(Blog blog)
-        {
-        
+        {     
             try
             {
                 if(ModelState.IsValid)
                 {
-                    db.Blogs.Add(blog);
-                    db.SaveChanges();
+                    if(repository.CreateBlog(blog))
                     return RedirectToAction("Index");
-
                 }
                 // TODO: Add insert logic here
                 return View(blog);
@@ -63,7 +67,7 @@ namespace Blogg.Controllers
         {
             if (id == null)
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            Blog blog = db.Blogs.Find(id);
+            Blog blog = repository.GetUpdateBlog(id);
             if (blog == null)
                 return HttpNotFound();
             return View(blog);
@@ -73,12 +77,14 @@ namespace Blogg.Controllers
         [HttpPost]
         public ActionResult Edit(Blog blog)
         {
+            
             try
             {
                 if(ModelState.IsValid)
                 {
-                    db.Entry(blog).State = System.Data.Entity.EntityState.Modified;
-                    db.SaveChanges();
+
+                    if(repository.UpdateBlog(blog))
+                   
                     return RedirectToAction("Index");
                 }
                 return View(blog);
@@ -94,7 +100,7 @@ namespace Blogg.Controllers
         {
             if (id == null)
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            Blog blog = db.Blogs.Find(id);
+            Blog blog = repository.GetDeleteBlog(id);
             if (blog == null)
                 return HttpNotFound();
             return View(blog);
@@ -106,21 +112,15 @@ namespace Blogg.Controllers
         {
             try
             {              
-                Blog blog = new Blog();
                 if (ModelState.IsValid)
                 {
                     if(id == null)
                         return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-                blog = db.Blogs.Find(id);
-                if(blog == null)
-                    return HttpNotFound();
-
-
-                    db.Blogs.Remove(blog);
-                    db.SaveChanges();
-                    return RedirectToAction("Index");
+                    
+                    if(repository.DeleteBlog(id))
+                        return RedirectToAction("Index");
                 }
-                return View(blog);
+                return RedirectToAction("Index");
             }
             catch
             {

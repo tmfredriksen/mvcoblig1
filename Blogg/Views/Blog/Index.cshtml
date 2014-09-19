@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<Blogg.Models.Blog>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Bloggliste";
 }
 
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Opprett ny", "Create")
 </p>
 <table class="table">
     <tr>
@@ -29,10 +29,10 @@
             @Html.DisplayFor(modelItem => item.Text)
         </td>
         <td>
-            @Html.ActionLink("Open", "Index","Post", new { id = item.ID }, null) |
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @Html.ActionLink("Se blogg", "Index","Post", new { id = item.ID }, null) |
+            @Html.ActionLink("Rediger", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Info", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Slett", "Delete", new { id=item.ID })
         </td>
     </tr>
 }

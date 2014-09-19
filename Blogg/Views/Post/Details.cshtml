@@ -1,12 +1,12 @@
 ﻿@model Blogg.Models.Post
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Innlegg";
 }
 
-<h2>Details</h2>
+<h2>Detaljert</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Sikker?</h3>
 <div>
     <h4>Post</h4>
     <hr />
@@ -50,7 +50,7 @@
 
         <div class="form-actions no-color">
             <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            @Html.ActionLink("Gå tilbake", "Index")
         </div>
     }
 </div>

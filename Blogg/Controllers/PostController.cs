@@ -1,4 +1,5 @@
 ﻿using Blogg.Models;
+using Blogg.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,15 +11,23 @@ namespace Blogg.Controllers
 {
     public class PostController : Controller
     {
-        private DatabaseModel db = new DatabaseModel();
+       // private DatabaseModel db = new DatabaseModel();
+        private BlogRepository repository;
+
+        public PostController()
+        {
+
+            repository = new BlogRepository();
+
+        }
 
         // GET: Post
         public ActionResult Index(int? id)
         {
             ViewBag.parentID = id;
             int parentID = Convert.ToInt32(id);
-            var post = db.Posts.Where(i => i.BlogID == parentID);
-            return View(post);
+
+            return View(repository.GetAllPosts(parentID));
         }
 
         // GET: Post/Details/5
@@ -26,7 +35,7 @@ namespace Blogg.Controllers
         {
             if (id == null)
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            Post post = db.Posts.Find(id);
+            Post post = repository.ReadPost(id);
             if (post == null)
                 return HttpNotFound();
             return View(post);
@@ -47,21 +56,13 @@ namespace Blogg.Controllers
         [HttpPost]
         public ActionResult Create(Post p, int id)
         {
-            var post = new Post
-            {
-                title = p.title,
-                Text = p.Text,
-                Author = p.Author,
-                BlogID = id
-            };
+
+            p.BlogID = id;
             try
             {
-                if (ModelState.IsValid)
-                
+                if (ModelState.IsValid)     
                 {
-                    //db.Posts.Where(post => post.BlogID == parentID)
-                    db.Posts.Add(post);
-                    db.SaveChanges();
+                    if(repository.CreatePost(p))
                     return RedirectToAction("Index", "Post", new { id = id });
 
                 }
@@ -77,12 +78,11 @@ namespace Blogg.Controllers
         }
 
         // GET: Post/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int? id)
         {
             if (id == null)
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            Post post = db.Posts.Find(id);
-            post.ID = id;
+            Post post = repository.GetUpdatePost(id);
             if (post == null)
                 return HttpNotFound();
             return View(post);
@@ -93,11 +93,10 @@ namespace Blogg.Controllers
         public ActionResult Edit(Post post)
         {
              try
-            {
+             {
                 if(ModelState.IsValid)
                 {
-                    db.Entry(post).State = System.Data.Entity.EntityState.Modified;
-                    db.SaveChanges();
+                   if(repository.UpdatePost(post))
                     return RedirectToAction("Index", "Post", new { id = post.BlogID });
                 }
                 return View(post);
@@ -110,11 +109,11 @@ namespace Blogg.Controllers
         }
 
         // GET: Post/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int? id)
         {
             if (id == null)
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            Post post = db.Posts.Find(id);
+            Post post = repository.GetDeletePost(id);
             if (post == null)
                 return HttpNotFound();
             return View(post);
@@ -126,21 +125,15 @@ namespace Blogg.Controllers
         {
             try
             {
-                Post post = new Post();
                 if (ModelState.IsValid)
                 {
-                    if (id == null)
+                    if(id == null)
                         return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-                    post = db.Posts.Find(id);
-                    if (post == null)
-                        return HttpNotFound();
-
-
-                    db.Posts.Remove(post);
-                    db.SaveChanges();
-                    return RedirectToAction("Index");
+                    
+                    if(repository.DeletePost(id))
+                        return RedirectToAction("Index");
                 }
-                return View(post);
+                return RedirectToAction("Index");
             }
             catch
             {

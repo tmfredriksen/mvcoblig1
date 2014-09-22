@@ -83,6 +83,14 @@ namespace Blogg.Repository
         #endregion
         #region post
 
+        public Post GetPostWithComments(int id)
+        {
+            var p = db.Posts
+                .Include("Comments")
+                .Where(i => i.ID == id).FirstOrDefault();
+            return p;
+        }
+
         public List<Post> GetAllPosts(int parentID)
         {
             return db.Posts.Where(i => i.BlogID == parentID).ToList();

@@ -6,13 +6,16 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-
+/**
+ * Tord-Marius Fredriksen @HiN 22.09.14
+ * BlogController.cs
+ * 
+ **/
 namespace Blogg.Controllers
 {
     public class BlogController : Controller
     {
         private IBlogRepository repository;
-      //  private DatabaseModel db = new DatabaseModel();
 
         public BlogController()
         {
@@ -21,7 +24,6 @@ namespace Blogg.Controllers
         public BlogController(IBlogRepository repos)
         {
             repository = repos;
-
         }
         // GET: Blog
         public ActionResult Index()

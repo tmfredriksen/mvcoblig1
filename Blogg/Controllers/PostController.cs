@@ -6,19 +6,20 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-
+/**
+ * Tord-Marius Fredriksen @HiN 22.09.14
+ * PostController.cs
+ * 
+ **/
 namespace Blogg.Controllers
 {
     public class PostController : Controller
     {
-       // private DatabaseModel db = new DatabaseModel();
         private BlogRepository repository;
 
         public PostController()
         {
-
             repository = new BlogRepository();
-
         }
 
         // GET: Post
@@ -29,7 +30,7 @@ namespace Blogg.Controllers
 
             return View(repository.GetAllPosts(parentID));
         }
-
+        
         // GET: Post/Details/5
         public ActionResult Details(int? id)
         {
@@ -40,7 +41,7 @@ namespace Blogg.Controllers
                 return HttpNotFound();
             return View(post);
         }
-
+        
         // GET: Post/Create
         [HttpGet]
         public ActionResult Create(int? id)
@@ -56,7 +57,6 @@ namespace Blogg.Controllers
         [HttpPost]
         public ActionResult Create(Post p, int id)
         {
-
             p.BlogID = id;
             try
             {
@@ -71,10 +71,8 @@ namespace Blogg.Controllers
             }
             catch
             {
-                return View();
-            
-            }
-             
+                return View();    
+            }             
         }
 
         // GET: Post/Edit/5

@@ -15,6 +15,7 @@ namespace Blogg.Repository
         Blogg.Models.Blog GetDeleteBlog(int? id);
         Blogg.Models.Comment GetDeleteComment(int? id);
         Blogg.Models.Post GetDeletePost(int? id);
+        Blogg.Models.Post GetPostWithComments(int id);
         Blogg.Models.Blog GetUpdateBlog(int? id);
         Blogg.Models.Comment GetUpdateComment(int? id);
         Blogg.Models.Post GetUpdatePost(int? id);

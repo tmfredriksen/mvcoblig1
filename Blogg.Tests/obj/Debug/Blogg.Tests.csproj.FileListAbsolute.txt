@@ -46,7 +46,12 @@ C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg.Tests\bin\Debug\Blogg.Tests.d
 C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg.Tests\bin\Debug\Blogg.Tests.dll
 C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg.Tests\bin\Debug\Blogg.Tests.pdb
 C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg.Tests\bin\Debug\Blogg.dll
+C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg.Tests\bin\Debug\EntityFramework.dll
+C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg.Tests\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg.Tests\bin\Debug\EntityFramework.Testing.dll
+C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg.Tests\bin\Debug\EntityFramework.Testing.Moq.dll
 C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg.Tests\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg.Tests\bin\Debug\Moq.dll
 C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg.Tests\bin\Debug\Newtonsoft.Json.dll
 C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg.Tests\bin\Debug\System.Web.Helpers.dll
 C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg.Tests\bin\Debug\System.Web.Mvc.dll
@@ -56,7 +61,6 @@ C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg.Tests\bin\Debug\System.Web.We
 C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg.Tests\bin\Debug\System.Web.WebPages.Razor.dll
 C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg.Tests\bin\Debug\Microsoft.AspNet.Identity.Core.dll
 C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg.Tests\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
-C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg.Tests\bin\Debug\EntityFramework.dll
 C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg.Tests\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
 C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg.Tests\bin\Debug\System.Web.Optimization.dll
 C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg.Tests\bin\Debug\Microsoft.Owin.dll
@@ -66,6 +70,13 @@ C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg.Tests\bin\Debug\Microsoft.Owi
 C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
 C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg.Tests\bin\Debug\Microsoft.Owin.Security.OAuth.dll
 C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg.Tests\bin\Debug\Blogg.pdb
+C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg.Tests\bin\Debug\EntityFramework.xml
+C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg.Tests\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg.Tests\bin\Debug\EntityFramework.Testing.pdb
+C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg.Tests\bin\Debug\EntityFramework.Testing.xml
+C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg.Tests\bin\Debug\EntityFramework.Testing.Moq.pdb
+C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg.Tests\bin\Debug\EntityFramework.Testing.Moq.xml
+C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg.Tests\bin\Debug\Moq.xml
 C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg.Tests\bin\Debug\Newtonsoft.Json.xml
 C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg.Tests\bin\Debug\System.Web.Helpers.xml
 C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg.Tests\bin\Debug\System.Web.Mvc.xml
@@ -75,7 +86,6 @@ C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg.Tests\bin\Debug\System.Web.We
 C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg.Tests\bin\Debug\System.Web.WebPages.Razor.xml
 C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg.Tests\bin\Debug\Microsoft.AspNet.Identity.Core.xml
 C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg.Tests\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
-C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg.Tests\bin\Debug\EntityFramework.xml
 C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg.Tests\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
 C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg.Tests\bin\Debug\System.Web.Optimization.xml
 C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg.Tests\bin\Debug\Microsoft.Owin.xml
@@ -86,13 +96,3 @@ C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg.Tests\bin\Debug\Microsoft.Owi
 C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg.Tests\obj\Debug\Blogg.Tests.csprojResolveAssemblyReference.cache
 C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg.Tests\obj\Debug\Blogg.Tests.dll
 C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg.Tests\obj\Debug\Blogg.Tests.pdb
-C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg.Tests\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg.Tests\bin\Debug\EntityFramework.Testing.dll
-C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg.Tests\bin\Debug\EntityFramework.Testing.Moq.dll
-C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg.Tests\bin\Debug\Moq.dll
-C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg.Tests\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg.Tests\bin\Debug\EntityFramework.Testing.pdb
-C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg.Tests\bin\Debug\EntityFramework.Testing.xml
-C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg.Tests\bin\Debug\EntityFramework.Testing.Moq.pdb
-C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg.Tests\bin\Debug\EntityFramework.Testing.Moq.xml
-C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg.Tests\bin\Debug\Moq.xml

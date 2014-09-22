@@ -15,7 +15,7 @@ namespace Blogg.Tests.Controllers
     [TestClass]
     public class CommentControllerTest
     {
-        private Mock<IBlogRepository> repos;
+        public Mock<IBlogRepository> repos;
 
         [TestInitialize]
         public void Setup()
@@ -24,13 +24,13 @@ namespace Blogg.Tests.Controllers
         }
 
         [TestMethod]
-        public void KommentarTestLukket()
+        public void CommentTestClosed()
         {
-            Post closedPost = new Post { title = "test", Text = "tester", ID = 1, CommentsAllowed = false, BlogID = 3 };
-            Comment comment = new Comment { ID = 2, Title = "test", Text = "test", PostID = 1 };
+            Post closedPost = new Post { title = "test", Text = "tester", ID = 44, CommentsAllowed = false, BlogID = 1 };
+            Comment comment = new Comment { ID = 2, Title = "test", Text = "test", PostID = 44 };
 
-          //  repos.Setup(x => x.GetPostsWithComments(1)).Returns(closedPost);
-         //   repos.Setup(x => x.CreateComment(comment)).Returns(true);
+            repos.Setup(x => x.GetPostWithComments(1)).Returns(closedPost);
+            repos.Setup(x => x.CreateComment(comment, 3)).Returns(true);
 
             var controller = new CommentController(repos.Object);
 
@@ -39,16 +39,16 @@ namespace Blogg.Tests.Controllers
             repos.Verify(x => x.CreateComment(comment, comment.PostID));
 
             Assert.IsNotNull(result);
-            Assert.IsInstanceOfType(result, typeof(RedirectToRouteResult));
+            Assert.IsInstanceOfType(result, typeof(ViewResult));
         }
         [TestMethod]
-        public void KommentarTestOpen()
+        public void CommentTestOpen()
         {
-            Post åpentInnlegg = new Post { title = "test", Text = "tester", ID = 1, CommentsAllowed = true };
+            Post openPost = new Post { title = "test", Text = "tester", ID = 1, CommentsAllowed = true };
             Comment k = new Comment { ID = 1, Title = "test", Text = "test" };
 
-         //   repos.Setup(x => x.GetPostsWithComments(1)).Returns(åpentInnlegg);
-         //   repos.Setup(x => x.CreateKommentar(k)).Returns(true);
+            repos.Setup(x => x.GetPostWithComments(1)).Returns(openPost);
+            repos.Setup(x => x.CreateComment(k,3)).Returns(true);
             
             var controller = new CommentController(repos.Object);
 
@@ -57,7 +57,7 @@ namespace Blogg.Tests.Controllers
             repos.Verify(x => x.CreateComment(k, k.PostID));
 
             Assert.IsNotNull(result);
-            Assert.IsInstanceOfType(result, typeof(RedirectToRouteResult));
+            Assert.IsInstanceOfType(result, typeof(ViewResult));
 
         }
     }

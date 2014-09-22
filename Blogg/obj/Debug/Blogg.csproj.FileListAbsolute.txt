@@ -110,3 +110,14 @@ C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg\obj\Debug\Blogg.Migrations.Ad
 C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg\obj\Debug\Blogg.csproj.GenerateResource.Cache
 C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg\obj\Debug\Blogg.Migrations.PostIDComment.resources
 C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg\obj\Debug\Blogg.Migrations.Donno.resources
+C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg\obj\Debug\Blogg.Migrations.boolCommentsAllowedinpost.resources
+C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg\obj\Debug\Blogg.Migrations.changedlettertitlepost.resources
+C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg\obj\Debug\Blogg.csprojResolveAssemblyReference.cache
+C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg\bin\EntityFramework.Testing.dll
+C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg\bin\EntityFramework.Testing.Moq.dll
+C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg\bin\Moq.dll
+C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg\bin\EntityFramework.Testing.pdb
+C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg\bin\EntityFramework.Testing.xml
+C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg\bin\EntityFramework.Testing.Moq.pdb
+C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg\bin\EntityFramework.Testing.Moq.xml
+C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg\bin\Moq.xml

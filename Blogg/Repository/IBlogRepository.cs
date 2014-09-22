@@ -1,10 +1,10 @@
 ﻿using System;
 namespace Blogg.Repository
 {
-    interface IBlogRepository
+    public interface IBlogRepository
     {
         bool CreateBlog(Blogg.Models.Blog blog);
-        bool CreateComment(Blogg.Models.Comment comment);
+        bool CreateComment(Blogg.Models.Comment comment, int id);
         bool CreatePost(Blogg.Models.Post post);
         bool DeleteBlog(int? id);
         bool DeleteComment(int? id);

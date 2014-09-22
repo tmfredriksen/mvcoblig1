@@ -42,7 +42,7 @@
         </td>
         <td>
             @Html.ActionLink("Se innlegg", "Details", new { id = item.ID }) |
-            @Html.ActionLink("Kommentarer", "Index", "Comment", new { id = item.ID }, null) |
+            @if (item.CommentsAllowed) {@Html.ActionLink("Kommentarer", "Index", "Comment", new { id = item.ID }, null);}|
             @Html.ActionLink("Rediger", "Edit", new { id=item.ID }) |
             @Html.ActionLink("Slett", "Delete", new { id=item.ID })
         </td>

@@ -4,9 +4,7 @@
     ViewBag.Title = "Innlegg";
 }
 
-<h2>Detaljert</h2>
 
-<h3>Sikker?</h3>
 <div>
     <h4>Post</h4>
     <hr />
@@ -48,8 +46,7 @@
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
+        <div>
             @Html.ActionLink("Gå tilbake", "Index")
         </div>
     }

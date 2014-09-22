@@ -13,7 +13,7 @@ namespace Blogg.Models
         public string title { get; set; }
         public string  Text { get; set; }
         public string Author { get; set; }
-
+        public bool CommentsAllowed { get; set; }
         public int BlogID { get; set; }
         public virtual Blog Blog { get; set; }
 

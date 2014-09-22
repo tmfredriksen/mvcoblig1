@@ -144,18 +144,24 @@ namespace Blogg.Repository
         }
         #endregion
         #region comment
-        public bool CreateComment(Comment comment)
+        public bool CreateComment(Comment comment, int id)
         {
-            try
+            Post post = db.Posts.Find(id);
+            if (post.CommentsAllowed)
             {
-                db.Comments.Add(comment);
-                db.SaveChanges();
-                return true;
+                try
+                {
+                    db.Comments.Add(comment);
+                    db.SaveChanges();
+                    return true;
+                }
+                catch
+                {
+                    return false;
+                }
             }
-            catch
-            {
+            else
                 return false;
-            } 
            
         }
         public List<Comment> GetAllComments(int? parentID)

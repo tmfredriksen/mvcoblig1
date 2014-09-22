@@ -11,12 +11,17 @@ namespace Blogg.Controllers
 {
     public class BlogController : Controller
     {
-        private BlogRepository repository;
+        private IBlogRepository repository;
       //  private DatabaseModel db = new DatabaseModel();
 
         public BlogController()
         {
             repository = new BlogRepository();
+        }
+        public BlogController(IBlogRepository repos)
+        {
+            repository = repos;
+
         }
         // GET: Blog
         public ActionResult Index()

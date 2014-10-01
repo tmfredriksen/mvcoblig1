@@ -121,3 +121,4 @@ C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg\obj\Debug\Blogg.csproj.Genera
 C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg\obj\Debug\Blogg.dll
 C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg\obj\Debug\Blogg.pdb
 C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg\obj\Debug\Blogg.Migrations.modelviewforcommentsposts.resources
+C:\Users\tmfredriksen\Source\Repos\mvcoblig1\Blogg\obj\Debug\Blogg.csprojResolveAssemblyReference.cache
